@@ -1,0 +1,20 @@
+# deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wonderful-babbage
+spec:
+  replicas: 3  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: wonderful-babbage
+  template:
+    metadata:
+      labels:
+        app: wonderful-babbage
+    spec:
+      containers:
+        - name: personal-portfolio
+          image: abhiishek06/personal-portfolio:latest  # Replace with your Docker Hub username
+          ports:
+            - containerPort: 8081  # Port where your application is running inside the container
